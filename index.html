@@ -14,13 +14,16 @@
     <body>
             <!-- Header-->
         <header>
+            <div class="navigation_overlay"></div>
+            <div class="navigation">
             <div class="row">
                 <nav>
-                    <a href="">Work</a>
-                    <a href="">Clients</a>
-                    <a href="">About</a>
-                    <a href="">Contact</a>
+                    <a class="header_link" href="#Work">Work</a>
+                    <a class="header_link" href="">Clients</a>
+                    <a class="header_link" href="#AboutMe">About</a>
+                    <a class="header_link" href="#Contact">Contact</a>
                 </nav>
+            </div>
             </div>
             <div class="row header-text-container">
                 <div>
@@ -32,17 +35,84 @@
         </header>
 
         <!--My Work-->
-        <section>
+        <hr />
+        <section class="work-section" id="Work">
             <div class="row">
                 <h2>My Work</h2>
 
                 <div class="work-box">
-                    <div>
+                    <div class="work-box-text">
                         <h3>555 Timer</h3>
-                        <p>A basic LMC555 clock circuit to practice using Altium Deisgner</p>
+                        <p>A basic LMC555 clock circuit to practice using Altium Deisgner and get familiar with the PCB Design Process</p>
+                        <p><u>Skills Demonstrated:</u></p>
+                        <ul>
+                            <li>Altium Designer</li>
+                            <li>Soldering Components</li>
+                            <li>555 Timer Design</li>
+                        </ul>
+                        <div>
+                            <a href="Reports/555_Timer.pdf" class="work-btn" download>View Report (PDF)</a>
+                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>Supplemental Information</a>
+                        </div>
                     </div>
-                    <div></div>
+                    <div class="work-box-image">
+                        <img src="images/Board1.jpg" alt="555 Timer">
+                    </div>
                 </div>
+                <br /><br />
+                <hr />
+                <div class="work-box">
+                    <div class="work-box-text">
+                        <h3>Good and Bad Layout Board</h3>
+                        <p>A hex-intverter clock circuit featuring three versions of the layout: A version with good, okay and bad practices</p>
+                        <p><u>Skills Demonstrated:</u></p>
+                        <ul>
+                            <li>Signal Integrity Analysis</li>
+                            <li>PCB Layout Optimization</li>
+                            <li>Propogation Delay Management</li>
+                            <li>Clock Signal Design</li>
+                        </ul>
+                        <div>
+                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>View Report (PDF)</a>
+                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>Supplemental Information</a>
+                        </div>
+                    </div>
+                    <div class="work-box-image">
+                        <img src="images/Board2.jpg" alt="Good Bad Board">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--About Me-->
+        <hr />
+        <section class="about-section" id="AboutMe">
+            <div class="row">
+                <h2>About Me</h2>
+                <div class="about">
+                    <div class="about-img">
+                        <img src="images/Sarthak_Samal.jpg" alt="Sarthak Samal"/>
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Hi! I’m a Biomedical Engineering student at the University of Colorado Boulder with a passion for both biomedical and electrical engineering. I’ve worked on everything from prototyping medical devices to designing circuits and PCBs. 
+                            <br /><br />
+                            I love tackling technical challenges, especially relating to programming and prototyping. Outside of engineering, I’m a varsity rower and enjoy combining teamwork and leadership in everything I do.
+                            <br /><br />
+                            The best way to reach out to me is via email at sarthak.samal2001@gmail.com, I look forward to hearing from you!
+                        </p>
+                        <a href="Resume/SarthakSamal_Resume.pdf" class="btn">My Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Contact Me-->
+        <hr />
+        <section class="about_section" id="Contact">
+            <div class="row">
+
             </div>
         </section>
     </body>
