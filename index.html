@@ -39,7 +39,7 @@
         <section class="work-section" id="Work">
             <div class="row">
                 <h2>My Work</h2>
-
+                <!--Start of Board 1-->
                 <div class="work-box">
                     <div class="work-box-text">
                         <h3>555 Timer</h3>
@@ -50,17 +50,27 @@
                             <li>Soldering Components</li>
                             <li>555 Timer Design</li>
                         </ul>
-                        <div>
-                            <a href="Reports/555_Timer.pdf" class="work-btn" download>View Report (PDF)</a>
-                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>Supplemental Information</a>
+                        <div class="report-btns">
+                            
+                                <a class="work-btn" target="_blank" rel="noopener noreferrer" href="Reports/555_Timer.pdf">View Report (PDF)</a>
+                            
+                            <div class="dropdown">
+                                <a class="dropbtn" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Supplemental Learning&nbsp; v</a>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 1/PDN_Noise.pdf">PDN Noise and Decoups</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 1/MaxCurrent_TraceResistance.pdf">Curent Limits and Trace Resistance</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="work-box-image">
                         <img src="images/Board1.jpg" alt="555 Timer">
                     </div>
                 </div>
+                <!--End of Board 1-->
                 <br /><br />
                 <hr />
+                <!--Start of Board 2-->
                 <div class="work-box">
                     <div class="work-box-text">
                         <h3>Good and Bad Layout Board</h3>
@@ -72,15 +82,51 @@
                             <li>Propogation Delay Management</li>
                             <li>Clock Signal Design</li>
                         </ul>
-                        <div>
-                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>View Report (PDF)</a>
-                            <a href="Reports/GoodBad_Report.pdf" class="work-btn" download>Supplemental Information</a>
+                        <div class="report-btns">
+                            <a href="Reports/555_Timer.pdf" class="work-btn" download>View Report (PDF)</a>
+                            <div class="dropdown">
+                                <a class="dropbtn" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Supplemental Learning&nbsp;v</a> <!--register the button press as an event so you can target its menu-->
+                                <div class="dropdown-content">
+                                    <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 2/CrossTalk.pdf">Trace-Trace Crosstalk</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="work-box-image">
                         <img src="images/Board2.jpg" alt="Good Bad Board">
                     </div>
                 </div>
+                <!--End of Board 2-->
+                <br /><br />
+                <hr />
+                <!--Start of Board 3-->
+                <div class="work-box">
+                    <div class="work-box-text">
+                        <h3>Golden Arduino (WIP)</h3>
+                        <p>An improved design from the standard. Used best design practices to improve signal integrity</p>
+                        <p><u>Skills Demonstrated:</u></p>
+                        <ul>
+                            <li>Precision Clock Design</li>
+                            <li>Circuit Protection</li>
+                            <li>Microcomputer Bootloading</li>
+                        </ul>
+                        <div class="report-btns">
+                            
+                                <a class="work-btn" target="_blank" rel="noopener noreferrer" href="Reports/Golden_Arduino.pdf">View Report (PDF)</a>
+                            
+                            <div class="dropdown">
+                                <a class="dropbtn" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Supplemental Learning&nbsp; v</a>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 3/XTAL_TVS.pdf">Crystal Oscillators and TVS Diode Arrays </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-box-image">
+                        <img src="images/Board3.jpg" alt="Golden Arduino">
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -98,11 +144,11 @@
                         <p>
                             Hi! I’m a Biomedical Engineering student at the University of Colorado Boulder with a passion for both biomedical and electrical engineering. I’ve worked on everything from prototyping medical devices to designing circuits and PCBs. 
                             <br /><br />
-                            I love tackling technical challenges, especially relating to programming and prototyping. Outside of engineering, I’m a varsity rower and enjoy combining teamwork and leadership in everything I do.
+                            I love tackling technical challenges, especially relating to programming and prototyping. If you don't find me holed up in a lab, you'll find me working on other passion projects to devlop new skills or hone existing ones.
                             <br /><br />
-                            The best way to reach out to me is via email at sarthak.samal2001@gmail.com, I look forward to hearing from you!
+                            The best way to reach out to me is via email, I look forward to hearing from you!
                         </p>
-                        <a href="Resume/SarthakSamal_Resume.pdf" class="btn">My Resume</a>
+                        <a target="_blank" rel="noopener noreferrer" href="Resume/SarthakSamal_Resume.pdf" class="btn">My Resume</a>
                     </div>
                 </div>
             </div>
@@ -115,5 +161,6 @@
 
             </div>
         </section>
+        <script src="script.js"></script>
     </body>
 </html>
