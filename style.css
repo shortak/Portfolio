@@ -42,6 +42,19 @@ body {
     background-color: var(--black);
 }
 
+.hidden {
+    opacity: 0;
+    filter: blur(.5rem);
+    transform: translateX(-100%);
+    transition: all .5s ease-out;
+}
+
+.fade {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
 a{
     color: var(--white);
     text-decoration: none;
@@ -132,17 +145,22 @@ header .row {
     transition: transform 0.25s ease-out; /* Transition effect for the underline */
 }
 
-.header_link:hover:after{
+.header_link:hover:after {
     transform: scaleX(1); /* Scale the underline on hover */
     transform-origin: bottom left; /* Set transform origin */
+}
+
+
+.navdiv {
+    z-index: 1;
 }
 
 .navigation_overlay{
     position: fixed;
     background-color: rgba(0,0,0,.5);
-    right: 6%;
+    right: 16%;
     height: 8rem;
-    width: 40%;
+    width: 30%;
     border-radius: 25px;
 
 }
@@ -160,6 +178,24 @@ nav {
     align-items: center;
     gap: 6rem;
     height: var(--nav-height);
+}
+
+.contentdiv {
+    width: 180%;
+}
+
+.contentdiv a {
+    font-size: 1.7rem;
+}
+
+.contentdiv > div {
+    display: flex;
+    align-items: center;
+}
+
+.contentdiv  div img{
+    height: 20%;
+    width: 20%;
 }
 
 nav a {
@@ -195,6 +231,15 @@ h1 {
     gap: var(--gutter-large);
     margin-top: var(--gutter-x-small);
 }
+
+.work-box-child:nth-child(2){
+    transition-delay: 200ms;
+}
+
+.work-box-child:nth-child(3){
+    transition-delay: 400ms;
+}
+
 
 .work-box-text{
     background-color: rgba(0,0,0,.6);
@@ -246,6 +291,7 @@ h1 {
     min-width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    max-width: 200%;
 }
 
 
@@ -303,6 +349,14 @@ h1 {
     display: flex;
     gap: var(--gutter-huge);
     margin-top: var(--gutter-large);
+}
+
+.aboutchild:nth-child(1){
+    transition-delay: 200ms;
+}
+
+.aboutchild:nth-child(2){
+    transition-delay: 400ms;
 }
 
 .about-text{

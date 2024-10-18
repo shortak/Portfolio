@@ -5,13 +5,6 @@
 const dropdownContent = document.querySelectorAll(".dropdown-content");
 const button = document.querySelectorAll(".dropbtn");
 
-
-
-
-
-
-
-
 //To get the element that triggered the event, find the parent; the second child is the drop down menu; toggle the second child
 function toggleMenu(event){
     const parentElement = event.target.parentElement;
@@ -20,10 +13,13 @@ function toggleMenu(event){
     secondChild.classList.toggle('show');
 }
 
+function toggleMenuNav(event){
+    console.log(document.div);
+    const content = event.target.children[0];
+    content.classList.toggle('show');
+}
+
  
-
-
-
 //Close menu functions
 
 //If the user hovers the menu, then off
@@ -42,23 +38,19 @@ function closeMenu(event) {
     if(!secondChild.matches(":hover")){
         secondChild.classList.remove("show");
     }
-   
-
 }
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade');
+        }else{
+            entry.target.classList.remove('fade')
+        }
+    });
+});
 
-// // Close the dropdown menu if the user moves outside of it
-// button.addEventListener("mouseover", function(event) {
 
-//     if (event.target == button) {
-//         console.log('yes');
-//       var dropdowns = dropdownContent;
-//       var i;
-//       for (i = 0; i < dropdowns.length; i++) {
-//         var openDropdown = dropdowns[i];
-//         if (openDropdown.classList.contains('show')) {
-//           openDropdown.classList.remove('show');
-//         }
-//       }
-//     }
-// })
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));

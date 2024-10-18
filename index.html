@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
+    <title class="hidden">
         Sarthak Samal
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,22 +14,36 @@
     <body>
             <!-- Header-->
         <header>
-            <div class="navigation_overlay"></div>
-            <div class="navigation">
-            <div class="row">
-                <nav>
-                    <a class="header_link" href="#Work">Work</a>
-                    <a class="header_link" href="">Clients</a>
-                    <a class="header_link" href="#AboutMe">About</a>
-                    <a class="header_link" href="#Contact">Contact</a>
-                </nav>
-            </div>
+            <div class="navigation_overlay navdiv"></div>
+            <div class="navigation navdiv">
+                <div class="row navdiv">
+                    <nav>
+                        
+                        <a class="header_link" href="#Work">Work</a>
+                        <a class="header_link" href="">Clients</a>
+                        <a class="header_link" href="#AboutMe">About</a>
+                        <div class="dropdown">
+                            <a class="header_link" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Contact</a>
+                            <div class="dropdown-content contentdiv">
+                                <div>
+                                    <a href="mailto:sarthak.samal2001@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/gmail_logo.webp">&nbsp;&nbsp;Gmail</a>
+                                </div>
+                                <div>
+                                    <a href="https://www.linkedin.com/in/sarthaksamal24" target="_blank" rel="noopener noreferrer"><img src="images/linkedlin_logo.png">&nbsp;&nbsp;LinkedIn</a>
+                                </div>
+                                <div>
+                                    <a href="https://github.com/shortak" target="_blank" rel="noopener noreferrer"><img src="images/github_logo.webp">&nbsp;&nbsp;Github</a>
+                                </div> 
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
             <div class="row header-text-container">
                 <div>
                     <h1>Sarthak Samal</h1>
                     <p>A cool dude</p>
-                    <a href="" class = "btn">Get in Touch</a>
+                    <a href="mailto:sarthak.samal2001@gmail.com" class = "btn">Get in Touch</a>
                 </div>
             </div>
         </header>
@@ -41,7 +55,7 @@
                 <h2>My Work</h2>
                 <!--Start of Board 1-->
                 <div class="work-box">
-                    <div class="work-box-text">
+                    <div class="work-box-text hidden">
                         <h3>555 Timer</h3>
                         <p>A basic LMC555 clock circuit to practice using Altium Deisgner and get familiar with the PCB Design Process</p>
                         <p><u>Skills Demonstrated:</u></p>
@@ -56,14 +70,14 @@
                             
                             <div class="dropdown">
                                 <a class="dropbtn" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Supplemental Learning&nbsp; v</a>
-                                <div id="myDropdown" class="dropdown-content">
+                                <div class="dropdown-content">
                                     <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 1/PDN_Noise.pdf">PDN Noise and Decoups</a>
                                     <a target="_blank" rel="noopener noreferrer" href="Reports/Supp Info/Board 1/MaxCurrent_TraceResistance.pdf">Curent Limits and Trace Resistance</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="work-box-image">
+                    <div class="work-box-image work-box-child hidden">
                         <img src="images/Board1.jpg" alt="555 Timer">
                     </div>
                 </div>
@@ -72,7 +86,7 @@
                 <hr />
                 <!--Start of Board 2-->
                 <div class="work-box">
-                    <div class="work-box-text">
+                    <div class="work-box-text work-box-child hidden">
                         <h3>Good and Bad Layout Board</h3>
                         <p>A hex-intverter clock circuit featuring three versions of the layout: A version with good, okay and bad practices</p>
                         <p><u>Skills Demonstrated:</u></p>
@@ -83,7 +97,7 @@
                             <li>Clock Signal Design</li>
                         </ul>
                         <div class="report-btns">
-                            <a href="Reports/555_Timer.pdf" class="work-btn" download>View Report (PDF)</a>
+                            <a href="Reports/555_Timer.pdf" target="_blank" rel="noopener noreferrer" class="work-btn">View Report (PDF)</a>
                             <div class="dropdown">
                                 <a class="dropbtn" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Supplemental Learning&nbsp;v</a> <!--register the button press as an event so you can target its menu-->
                                 <div class="dropdown-content">
@@ -92,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="work-box-image">
+                    <div class="work-box-image work-box-child hidden">
                         <img src="images/Board2.jpg" alt="Good Bad Board">
                     </div>
                 </div>
@@ -101,7 +115,7 @@
                 <hr />
                 <!--Start of Board 3-->
                 <div class="work-box">
-                    <div class="work-box-text">
+                    <div class="work-box-text work-box-child hidden">
                         <h3>Golden Arduino (WIP)</h3>
                         <p>An improved design from the standard. Used best design practices to improve signal integrity</p>
                         <p><u>Skills Demonstrated:</u></p>
@@ -122,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="work-box-image">
+                    <div class="work-box-image work-box-child hidden">
                         <img src="images/Board3.jpg" alt="Golden Arduino">
                     </div>
                 </div>
@@ -137,10 +151,10 @@
             <div class="row">
                 <h2>About Me</h2>
                 <div class="about">
-                    <div class="about-img">
+                    <div class="about-img aboutchild hidden">
                         <img src="images/Sarthak_Samal.jpg" alt="Sarthak Samal"/>
                     </div>
-                    <div class="about-text">
+                    <div class="about-text aboutchild hidden">
                         <p>
                             Hi! I’m a Biomedical Engineering student at the University of Colorado Boulder with a passion for both biomedical and electrical engineering. I’ve worked on everything from prototyping medical devices to designing circuits and PCBs. 
                             <br /><br />
@@ -156,11 +170,7 @@
 
         <!--Contact Me-->
         <hr />
-        <section class="about_section" id="Contact">
-            <div class="row">
-
-            </div>
         </section>
-        <script src="script.js"></script>
+        <script defer src="script.js"></script>
     </body>
 </html>
