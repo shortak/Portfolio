@@ -15,14 +15,22 @@
     <body>
             <!-- Header-->
         <header>
-            <div class="navigation_overlay navdiv"></div>
             <div class="navigation navdiv">
                 <div class="row navdiv">
                     <nav>
-                        
-                        <a class="header_link" href="#Work">Work</a>
+                        <div class="navigation_overlay navdiv"></div>
+                        <div class="dropdown">
+                            <a class="header_link" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)" href="#Work">Work</a>
+                            <div class="dropdown-content contentdiv">
+                                <a href="PCB.html">PCB Design</a>
+                                <a href="FLOWLab.html">FLOWLab</a>
+                                <a href="PersonalProj.html">Personal Projects</a>
+                            </div>
+                        </div>
                         <a class="header_link" href="">Clients</a>
                         <a class="header_link" href="#AboutMe">About</a>
+
+                        <!--Dropdown for Contact-->
                         <div class="dropdown">
                             <a class="header_link" onmouseover="toggleMenu(event)" onmouseleave="closeMenu(event)">Contact</a>
                             <div class="dropdown-content contentdiv">
