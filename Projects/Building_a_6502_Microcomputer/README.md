@@ -1,7 +1,7 @@
 # About this project
 This project involved using the WD65C02 CPU to create a microcontroller capable of handling basic I/O
 
-| <ins>Key Skills</ins>    |
+| <ins>_Key Skills_</ins>    |
 |:-------------:           |
 |CPU Architecture          |
 |6502 Assembly             |
