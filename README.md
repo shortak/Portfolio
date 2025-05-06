@@ -11,9 +11,5 @@ This repo consists of my techical projects that show off my skills in Biomedical
 If you would like to learn more about me, please visit my [LinkedIn](https://www.linkedin.com/in/sarthaksamal24/) and my [website](https://shortak.github.io/Portfolio/)!
 
 # Projects
-* 6502 based Microcontroller
-* CS Fundamentals
-* Computer Systems
-* Operating Systems
-* Medical Devices
-*
+* [6502 based Microcontroller](Projects/Building_a_6502_Microcomputer/)
+
