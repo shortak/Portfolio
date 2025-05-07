@@ -4,10 +4,18 @@ Created a WD65C02 CPU to create a microcontroller capable of handling basic I/O.
 Each file indicates a key milestone for the project:
 1. ArduinoLogicAnalyzer
     - Contains the logic analyzer program for an Arduion MEGA.
-2. eaSerialMonitor.png
-    - The output of the ArduinoLogicAnalyzer program after hardcoding the NOP instruction to the CPU.
+    - Contains a png file that shows the output of the ArduinoLogicAnalyzer program after hardcoding the NOP instruction to the CPU.
 
-| <ins>_Key Skills_</ins>  |
+2. EEPROM Test
+    - Contains the C file used to generate a bin file full of NOP instructions
+    - Wrote to a binary file (output.bin) and flashed the ROM chip
+    - Extracted ROM content to read and verify the data (test_read.bin)
+    - Used the logic analyzer to verify that the CPU was reading NOP instructions (ROMallNOP.png)
+
+3. 
+
+
+| <ins>_Key Skills Exercised_</ins>  |
 |:-------------:           |
 |CPU Architecture          |
 |6502 Assembly             |
