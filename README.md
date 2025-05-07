@@ -6,7 +6,7 @@ I love tackling technical challenges, especially relating to programming and pro
 The best way to reach out to me is via email, I look forward to hearing from you!
 
 # About this repo...
-This repo consists of my techical projects that show off my skills in Biomedical Engineering, Computer Science and Electrical Engineering. Anyone visiting this repo can see me exercizing vital skills for the industry instead of simply taking my word for it in my [resume](Sarthak_Samal_Resume.pdf)!
+This repo consists of my techical projects that show off my skills in Biomedical Engineering, Computer Science and Electrical Engineering. Anyone visiting this repo can see me exercising vital skills for the industry instead of simply taking my word for it in my [resume](Sarthak_Samal_Resume.pdf)!
 
 If you would like to learn more about me, please visit my [LinkedIn](https://www.linkedin.com/in/sarthaksamal24/) and my [website](https://shortak.github.io/Portfolio/)!
 
