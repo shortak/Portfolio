@@ -27,9 +27,12 @@ Each file indicates a key milestone for the project, the contents of which are a
     - LCD_HelloWorld_w_Subroutine
         - asm code for writing to the LCD using a subroutine
         - Serial monitor result to show behavior when there is no RAM
+            - CPU jumps to zero page and cannot read data
     -LCD_HelloWorld_Final
         - Final asm code for wrting to the LCD
 
+4. IRQs
+(WIP)
 
 | <ins>_Key Skills Exercised_</ins>  |
 |:-------------:           |
