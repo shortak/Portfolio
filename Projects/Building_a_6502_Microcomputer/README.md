@@ -12,7 +12,7 @@ Each file indicates a key milestone for the project:
     - Extracted ROM content to read and verify the data (test_read.bin)
     - Used the logic analyzer to verify that the CPU was reading NOP instructions (ROMallNOP.png)
 
-3. 
+3. EEP
 
 
 | <ins>_Key Skills Exercised_</ins>  |
