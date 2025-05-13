@@ -59,3 +59,30 @@ Structs in C++ offer an extension to the structs in C.
 | Access Specifiers  |      No       | Yes (public, private, etc. ) |
 | Inheritance        |      No       |              Yes             |
 
+In essence, C structs are only limited to member variables.
+
+A C programmer can, however, simulate object-like behavior...
+
+```c
+struct Point 
+{
+
+    int x;
+    int y;
+
+};
+
+void move(struct Point* p)
+{
+    p -> x += 1;
+    p -> y += 1;
+}
+
+int main()
+{
+    struct Point p = {0, 0};
+    move(&p);
+
+    return 0;
+}
+```
