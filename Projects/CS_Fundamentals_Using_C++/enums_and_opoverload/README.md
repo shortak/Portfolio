@@ -116,3 +116,24 @@ inline Even operator++ (Even e)
 This way, if we use the "++" operator with the "datatype" type, it will increment by 2 instead of 1
 
 NOTE: You need to use static_cast here to make sure you can perform an integer operation (or any operation in this case)
+
+## Limitations with the operator overload
+
+While you can change the how the operator behaves, you cannot change how the operator is parsed, meaning the order in which operators are evaluated do not change
+For example...
+
+```cpp
+enum class Even{a = 0, b = 2, c = 4};
+
+inline Even operator++ (Even e)
+{
+    return static_cast<Even>(static_cast<int>(e) + 2); //cast type to int to perform operation, 
+                                                       //then cast to Even datatype to preserve type
+}
+
+Even e = Even::b;
+
+e = static_cast<Even>(static_cast<int>(++e) * 2);
+```
+
+Will ALWAYS increment first and then multiply. You cannot specify the "++" operator to take precedence over the multiplication operator.
