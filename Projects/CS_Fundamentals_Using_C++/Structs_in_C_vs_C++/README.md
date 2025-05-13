@@ -97,7 +97,8 @@ This may cause bugs that will be ignored by the compiler, leaving it up to the C
 On the other hand, using a C++ member function...
 
 ```cpp
-struct Point {
+struct Point 
+{
     int x;
     int y;
 
@@ -105,13 +106,10 @@ struct Point {
         x += 1;
         y += 1;
     }
-
-    void print() {
-        std::cout << "Point: (" << x << ", " << y << ")" << std::endl;
-    }
 };
 
-int main() {
+int main() 
+{
     Point p = {0, 0};   
 
     p.move();
