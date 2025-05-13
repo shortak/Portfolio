@@ -2,7 +2,7 @@
 
 When it comes to data structures in C++, encapsulation is key. This directory will dig into what a struct is, why it is important and what make a C++s struct different from a C struct
 
-Examples of structs in C and C++ can be found in the [Point.c](Point.c) and [Point.cpp](Portfolio/Projects/CS_Fundamentals_Using_C%2B%2B/Point.cpp) files.
+Examples of structs in C and C++ can be found in the [Point.c](Point.c) and [Point.cpp](Point.cpp) files.
 
 # The Struct Data Type
 
@@ -63,7 +63,7 @@ Structs in C++ offer an extension to the structs in C.
 
 In essence, C structs are only limited to member variables.
 
-NOTE: Access Specifiers are reserved for "class" rather than "struct"; class is not much different than structs in practice, it just offers access specifiers which will be explored in the [classes in C++](Portfolio/Projects/CS_Fundamentals_Using_C%2B%2B/Classes_in_C%2B%2B/) directory.
+NOTE: Access Specifiers are reserved for "class" rather than "struct"; class is not much different than structs in practice, it just offers access specifiers which will be explored in the [classes in C++](../Classes_in_C%2B%2B/) directory.
 
 ## Simulating a Member Function in C vs Member Functions in C++
 
