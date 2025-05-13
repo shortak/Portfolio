@@ -61,7 +61,7 @@ Structs in C++ offer an extension to the structs in C.
 
 In essence, C structs are only limited to member variables.
 
-### Simulating Member Functions in C vs Member Functions in C++
+## Simulating a Member Functions in C vs Member Functions in C++
 
 A C programmer can, however, simulate object-like behavior...
 
