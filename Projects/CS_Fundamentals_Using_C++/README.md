@@ -2,7 +2,8 @@ One of the core concepts of C++ is to make intuitive and readable code. This dir
 1. Enum
 2. Operator Overloading
 
-Enum: 
+#Enum: 
+
 Enum is a user-defined type in C++ to assign names to a set of integer constants, making code more readable and manageable
 
 There are two types of enums you can use in C++...
