@@ -63,6 +63,31 @@ In essence, C structs are only limited to member variables.
 
 ## Simulating a Member Function in C vs Member Functions in C++
 
+The C++ programmer has the benefit of member functions...
+
+```cpp
+struct Point 
+{
+    int x;
+    int y;
+
+    void move() {
+        x += 1;
+        y += 1;
+    }
+};
+
+int main() 
+{
+    Point p = {0, 0};   
+
+    p.move();
+
+    return 0;
+}
+```
+Which allows the function ("move" in the above code) to only be used for the Point-type variables.
+
 A C programmer can, however, simulate object-like behavior...
 
 ```c
@@ -94,26 +119,4 @@ The above code specifies a function called "move" which acts as a member functio
 The issue here is that the "move" function is not specific to the Point struct, meaning it is technically possible to use the move function with another struct.
 This may cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
 
-On the other hand, using a C++ member function...
-
-```cpp
-struct Point 
-{
-    int x;
-    int y;
-
-    void move() {
-        x += 1;
-        y += 1;
-    }
-};
-
-int main() 
-{
-    Point p = {0, 0};   
-
-    p.move();
-
-    return 0;
-}
-```
+This risk persists anytime the C programmer simulates other procedures.
