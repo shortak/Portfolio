@@ -2,7 +2,7 @@
 
 When it comes to data structures in C++, encapsulation is key. This directory will dig into what a struct is, why it is important and what make a C++s struct different from a C struct
 
-# The Struct Data type
+# The Struct Data Type
 
 A struct is a user-defined data type that lets you group realted variables (members) together under one name
 
@@ -47,3 +47,15 @@ p2 will not overide p1 despite being the same data type.
 
 Essentially, upon initializing a variable with a user-defined data type, you create a copy of that type on the stack. It does not share states with other variables.
 If you want to share states, you can use pointers as you would with native types.
+
+# Structs in C vs. C++
+
+Structs in C++ offer an extension to the structs in C.
+
+|    Feature         |    C struct   |          C++ struct          |
+| -------------      | ------------- | ---------------------------- |
+| Member Fxns        |      No       |              Yes             |
+| Constructors       |      No       |              Yes             |
+| Access Specifiers  |      No       | Yes (public, private, etc. ) |
+| Inheritance        |      No       |              Yes             |
+
