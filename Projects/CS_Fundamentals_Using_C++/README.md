@@ -55,8 +55,24 @@ int a = RED + TUE; // This will still compile but this does not make sense to do
 
 is not as type strict, allowing for bugs
 
-# Operator Overloading
+# Operator Overloading:
 
 Operator overloading provides a way to assign new meaning to certain operators depending on the data type
 
-For 
+For example, we know that something like 
+
+```cpp
+i++
+```
+Increments the variable i by 1, however, lets say we are working with a data type where incrementing means increasing the value by 2...
+
+```cpp
+inline datatype operator++ (datatype d)
+{
+    return static_cast<datatype>(static_cast<int>(d) + 2);
+}
+```
+
+This way, if we use the "++" operator with the "datatype" type, it will increment by 2 instead of 1
+
+NOTE: You need to use static_cast here to make sure you can perform an integer operation (or any operation in this case)
