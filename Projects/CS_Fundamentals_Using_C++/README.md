@@ -31,7 +31,7 @@ BLUE = 3;
 
 The reason for the enum, however, is to make it so that the named variables will have their own type. This way, a "Color" type variable won't be able to work with an "int" type variable, thus avoiding logical bugs in the code.
 
-enum class vs. enum
+## enum class vs. enum
 
 ```cpp 
 
@@ -55,3 +55,8 @@ int a = RED + TUE; // This will still compile but this does not make sense to do
 
 is not as type strict, allowing for bugs
 
+# Operator Overloading
+
+Operator overloading provides a way to assign new meaning to certain operators depending on the data type
+
+For 
