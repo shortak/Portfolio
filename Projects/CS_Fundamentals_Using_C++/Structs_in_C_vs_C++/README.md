@@ -2,7 +2,7 @@
 
 When it comes to data structures in C++, encapsulation is key. This directory will dig into what a struct is, why it is important and what make a C++s struct different from a C struct
 
-Examples of structs in C and C++ can be found in the [Point.c](~/Point.c) and [Point.cpp](Portfolio/Projects/CS_Fundamentals_Using_C%2B%2B/Point.cpp) files.
+Examples of structs in C and C++ can be found in the [Point.c](Point.c) and [Point.cpp](Portfolio/Projects/CS_Fundamentals_Using_C%2B%2B/Point.cpp) files.
 
 # The Struct Data Type
 
