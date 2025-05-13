@@ -12,43 +12,44 @@ There are two types of enums you can use in C++...
 
 Enum is no different from manually assigning integers to names
 
-```cpp #include <iostream> // Entry point of the program int main() { std::cout << "Hello, GitHub Markdown!" << std::endl; return 0; } ``` 
 
-<pre>```cpp enum Color{RED, GREEN, BLUE};```</pre>
+
+```cpp 
+enum Color{RED, GREEN, BLUE};```
 
 is the same as 
 
-<pre> ```cpp 
+```cpp 
 
 RED = 1;
 GREEN = 2;
 BLUE = 3;
 
-</pre>
+```
 
 The reason for the enum, however, is to make it so that the named variables will have their own type. This way, a "Color" type variable won't be able to work with an "int" type variable, thus avoiding logical bugs in the code.
 
 enum class vs. enum
 
-<pre> ```cpp 
+```cpp 
 
 enum class Color{RED, GREEN, BLUE};
 enum class Day{MON, TUE, WED};
 
 int a = Color::RED + Day::MON; // This will not compile, despite both values being integers
 
-```</pre>
+```
 
 is much more type strict whereas 
 
-<pre> ```cpp 
+```cpp 
 
 enum Color{RED, GREEN, BLUE};
 enum Day{MON, TUE, WED};
 
 int a = RED + TUE; // This will still compile but this does not make sense to do (or you may not want to do this)
 
-```</pre>
+```
 
 is not as type strict, allowing for bugs
 
