@@ -12,7 +12,7 @@ There are two types of enums you can use in C++...
 
 Enum is no different from manually assigning integers to names
 
-<pre> ```cpp #include <iostream> // Entry point of the program int main() { std::cout << "Hello, GitHub Markdown!" << std::endl; return 0; } ``` </pre>
+```cpp #include <iostream> // Entry point of the program int main() { std::cout << "Hello, GitHub Markdown!" << std::endl; return 0; } ``` 
 
 <pre>```cpp enum Color{RED, GREEN, BLUE};```</pre>
 
