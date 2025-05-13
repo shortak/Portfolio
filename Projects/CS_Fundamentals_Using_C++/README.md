@@ -15,7 +15,8 @@ Enum is no different from manually assigning integers to names
 
 
 ```cpp 
-enum Color{RED, GREEN, BLUE};```
+enum Color{RED, GREEN, BLUE};
+```
 
 is the same as 
 
