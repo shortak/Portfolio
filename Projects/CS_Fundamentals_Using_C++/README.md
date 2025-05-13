@@ -11,6 +11,9 @@ There are two types of enums you can use in C++...
 2. enum class (enumclass.cpp)
 
 Enum is no different from manually assigning integers to names
+
+<pre> ```cpp #include <iostream> // Entry point of the program int main() { std::cout << "Hello, GitHub Markdown!" << std::endl; return 0; } ``` </pre>
+
 <pre>```cpp enum Color{RED, GREEN, BLUE};```</pre>
 
 is the same as 
