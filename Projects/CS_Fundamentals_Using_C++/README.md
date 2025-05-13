@@ -69,7 +69,8 @@ Increments the variable i by 1, however, lets say we are working with a data typ
 ```cpp
 inline datatype operator++ (datatype d)
 {
-    return static_cast<datatype>(static_cast<int>(d) + 2); //cast type to int to perform operation, then cast to datatype to preserve type
+    return static_cast<datatype>(static_cast<int>(d) + 2); //cast type to int to perform operation, 
+                                                           //then cast to datatype to preserve type
 }
 ```
 
