@@ -101,15 +101,15 @@ Operator overloading provides a way to assign new meaning to certain operators d
 For example, we know that something like 
 
 ```cpp
-i++
+int i++
 ```
 Increments the variable i by 1, however, lets say we are working with a data type where incrementing means increasing the value by 2...
 
 ```cpp
-inline datatype operator++ (datatype d)
+inline Even operator++ (Even e)
 {
-    return static_cast<datatype>(static_cast<int>(d) + 2); //cast type to int to perform operation, 
-                                                           //then cast to datatype to preserve type
+    return static_cast<Even>(static_cast<int>(e) + 2); //cast type to int to perform operation, 
+                                                       //then cast to Even datatype to preserve type
 }
 ```
 
