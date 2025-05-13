@@ -119,4 +119,4 @@ The above code specifies a function called "move" which acts as a member functio
 The issue here is that the "move" function is not specific to the Point struct, meaning it is technically possible to use the move function with another struct.
 This may cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
 
-This risk persists anytime the C programmer simulates other procedures.
+This risk persists anytime the C programmer simulates other feature.
