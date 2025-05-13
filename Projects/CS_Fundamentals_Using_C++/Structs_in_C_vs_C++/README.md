@@ -147,16 +147,8 @@ int main()
     return 0;
 }
 ```
-In the above code, we force a cast from a PolarPoint type to a Point type. 
+In the above code, we force a cast from a PolarPoint type to a Point type. The compiler will trust the user and assume that the behavior is defined.
 
-C:
-    Compiler: "You sure these types are the same?"
-    You: "Just trust me, bro..."
-    Compiler: "Alright"
-
-C++:
-    Compiler: "Nah, not gonna happen" * Throws out error *
-
-This cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
+This causes bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
 
 This risk persists anytime the C programmer simulates other features.
