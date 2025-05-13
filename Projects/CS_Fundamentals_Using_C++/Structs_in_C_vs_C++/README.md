@@ -116,7 +116,47 @@ int main()
 
 The above code specifies a function called "move" which acts as a member function.
 
-The issue here is that the "move" function is not specific to the Point struct, meaning it is technically possible to use the move function with another struct.
-This may cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
+The issue here is that the "move" function is not specific to a Point-type variable, meaning it is technically possible to use the move function with another struct...
+
+```c
+struct Point 
+{
+
+    int x;
+    int y;
+
+};
+
+struct PolarPoint
+{
+    int r;
+    int theta;
+};
+
+void move(struct Point* p)
+{
+    p -> x += 1;
+    p -> y += 1;
+}
+
+int main()
+{
+    struct PolarPoint p = {1, 3};
+    move((struct Point*)& p);
+
+    return 0;
+}
+```
+In the above code, we force a cast from a PolarPoint type to a Point type. 
+
+C:
+    Compiler: "You sure these types are the same?"
+    You: "Just trust me, bro..."
+    Compiler: "Alright"
+
+C++:
+    Compiler: "Nah, not gonna happen" * Throws out error *
+
+This cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
 
 This risk persists anytime the C programmer simulates other features.
