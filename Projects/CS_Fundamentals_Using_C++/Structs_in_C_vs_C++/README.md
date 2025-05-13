@@ -61,7 +61,7 @@ Structs in C++ offer an extension to the structs in C.
 
 In essence, C structs are only limited to member variables.
 
-## Simulating a Member Functions in C vs Member Functions in C++
+## Simulating a Member Function in C vs Member Functions in C++
 
 A C programmer can, however, simulate object-like behavior...
 
@@ -89,4 +89,33 @@ int main()
 }
 ```
 
-The above code specifies a function called "move" which acts as a member function
+The above code specifies a function called "move" which acts as a member function.
+
+The issue here is that the "move" function is not specific to the Point struct, meaning it is technically possible to use the move function with another struct.
+This may cause bugs that will be ignored by the compiler, leaving it up to the C programmer to find and resolve the issue.
+
+On the other hand, using a C++ member function...
+
+```cpp
+struct Point {
+    int x;
+    int y;
+
+    void move() {
+        x += 1;
+        y += 1;
+    }
+
+    void print() {
+        std::cout << "Point: (" << x << ", " << y << ")" << std::endl;
+    }
+};
+
+int main() {
+    Point p = {0, 0};   
+
+    p.move();
+
+    return 0;
+}
+```
