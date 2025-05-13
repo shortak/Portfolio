@@ -61,6 +61,8 @@ Structs in C++ offer an extension to the structs in C.
 
 In essence, C structs are only limited to member variables.
 
+NOTE: Access Specifiers are reserved for "class" rather than "struct"; class is not much different than structs in practice, it just offers access specifiers which will be explored later on.
+
 ## Simulating a Member Function in C vs Member Functions in C++
 
 The C++ programmer has the benefit of member functions...
