@@ -13,9 +13,9 @@ There are two types of enums you can use in C++...
 1. enum (enum.cpp)
 2. enum class (enumclass.cpp)
 
-(both programs create a days datatype and increments the day )
+(both files uses enumerators to create and perform operations on a "days" datatype as an example)
 
-Enum is no different from manually assigning integers to names
+Enum is no different from manually assigning integers to names, for example...
 
 
 
@@ -33,9 +33,11 @@ BLUE = 3;
 
 ```
 
-The reason for the enum, however, is to make it so that the named variables will have their own type. This way, a "Color" type variable won't be able to work with an "int" type variable, thus avoiding logical bugs in the code.
+The reason for the enum, is to make it so that the named variables will have their own type. This way, a "Color" type variable won't be able to work with an "int" type variable, thus avoiding logical bugs in the code. 
 
 ## enum class vs. enum
+
+
 
 ```cpp 
 
@@ -46,7 +48,7 @@ int a = Color::RED + Day::MON; // This will not compile, despite both values bei
 
 ```
 
-is much more type strict whereas 
+is much more type strict whereas...
 
 ```cpp 
 
@@ -57,7 +59,40 @@ int a = RED + TUE; // This will still compile but this does not make sense to do
 
 ```
 
-is not as type strict, allowing for bugs
+is not as type strict, causing logical bugs. However there may be cases where you want implicit type conversion for the sake
+of readability, for example...
+
+```cpp 
+
+enum Day{MON, TUE, WED};
+
+day d = MON;
+
+if (d == MON) 
+{
+    cout << "It is Monday!" << endl;
+}
+
+
+```
+
+May be more convenient than
+
+```cpp 
+
+enum class Day{MON, TUE, WED};
+
+day d = Day::MON;
+
+if (d == Day::MON) 
+{
+    cout << "It is Monday!" << endl;
+}
+
+
+```
+At the end of the day, it is up to the user to decide if the tradeoffs are worht it.
+
 
 # Operator Overloading:
 
