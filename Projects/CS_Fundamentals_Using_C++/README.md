@@ -13,6 +13,8 @@ There are two types of enums you can use in C++...
 1. enum (enum.cpp)
 2. enum class (enumclass.cpp)
 
+(both programs create a days datatype and increments the day )
+
 Enum is no different from manually assigning integers to names
 
 
