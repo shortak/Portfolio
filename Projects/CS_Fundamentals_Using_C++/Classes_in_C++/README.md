@@ -113,21 +113,82 @@ class Dog : public Animal
 ```
 Here is an example of an initializer list being used in a "base class" this dives into inheritance which we will not dive into just yet, but keep this in mind.
 
-Back to the PointClass.cpp code, after the constructor, We have our operator overloader. However, you may have noticed that the syntax here is a little different.
+Additionally, if we want to exercise "const correctness" (which should be wherever we can), we might assign "const" to a private data member. In this case, we would also be required to use an initializer list.
+
+```cpp
+class Example
+{
+    public:
+        Example() {a = b = 1;}
+    private:
+        const int a, b;    
+}
+```
+In the above code, we would get an error. Remember that a constructor body assignment involves initializing the member, then *reassigning* that value. What we really want is to initialize that value right off the bat so that we don't have to deal with reassignment.
+
+```cpp
+class Example 
+{
+    public:
+        Example():a(1), b(1){}
+    private:
+        const int a, b;
+}
+```
+
+The above code is the correct way to use a constructor that involves const data members.
 
 ### "this"
 An important concept to introduce is the "this" operator. "this" is what is known as a "self-referential" operator, that is, when "this" is used, we are telling the compiler that we are refering to the object we are working with.
 
-Consider the following operator overload...
+Consider the following accessor method...
 
 ```cpp
-Point operator+ ( const Point& otherPoint)
+class Point 
 {
-    Point sum(this -> x + otherPoint.getx(), this -> y + otherPoint.gety());
-    return sum;
+    public:
+        double getX() const 
+        {
+            return this->x;  // explicitly using this
+        }
+        double getY() const
+        {
+            return this->y;
+        }
+
+
+    private:
+        double x, y;
+};
+```
+Here, using "this->" says look at the *this* object's x and y values (Since this is self-referential, we are able to access the private members, since we are telling the object to retrieve its own private members).
+
+### Constructor Overloading and Disambiguation
+
+When creating a class, there may be a need to declare multiple ways to construct the object and resolve ambiguous elements...
+
+```cpp
+class Example 
+{
+    public:
+        Example(double a) {this->a = a;}
+        Example(double a, double b) {this->b = b;}
+    private:
+        const int a, b;
 }
 ```
-Here, using "this ->" says look at the *this* object's x and y values (Since this is self-referential, we are able to access the private members, since we are telling the object to retrieve its own private members).
+
+The above code defines two ways to construct the object, the compiler will choose either method depending on how many arguments are passed. Additionally, we use "this ->" to specify which a or b is the data member and which is the argument. 
+
+Since arguemnts take precedence over data members...
+
+```cpp
+Example(double a) {a = a;}
+```
+
+Doesn't actually work.
+
+Back to the PointClass.cpp code, after the constructor, We have our operator overloader. However, you may have noticed that the syntax here is a little different.
 
 ### Operator Overloads in Classes
 If you were tasked with making an operator overload for the "+" operator to work with two points, you may have had something like this in mind...
@@ -147,7 +208,7 @@ Although this works as a nonmember function, when used as a method, the left sid
 // Take the current object and perform the operation with the 2nd point
 Point operator+ ( const Point& otherPoint)
 {
-    Point sum(this -> x + otherPoint.getx(), this -> y + otherPoint.gety());
+    Point sum(this->x + otherPoint.getx(), this->y + otherPoint.gety());
     return sum;
 }
 
