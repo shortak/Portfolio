@@ -57,7 +57,63 @@ class Point
         double x, y;
 };
 ```
-We have accessors that grab member variables, mutators that change the member variables and contructor that defines how the object should be initialized. We also have our operator overloader here, however, you may have noticed that the syntax here is a little different.
+We have accessors that grab member variables, mutators that change the member variables, pretty easy to understand. Our first bit of new knowledge is the contructor.
+
+## Constructors
+
+When you initialize a variable like...
+```cpp
+int x = 8;
+```
+The compiler will already know how to contruct that variable, same goes for any native datatype.
+
+However, the compiler will need instructions on how to initialize any sort of user-defined data type. This is the job of the constructor.
+
+```cpp
+Point() {x = y = 0;}
+Point() {this -> x = 0; this -> y = 0;}
+Point():x(0), y(0){}
+```
+
+What we have above are two examples of how to use constructor methods. All three will allow initialization with 0, 1 or 2 arguments. The first and second versions use a "constructor body assignment" and are relatively easy to understand (the "this" operator will be explored in a future section but in essense it works the same as the first version). But, the third version introduces some new concepts and is indeed the best practice for creating constructor methods. Let's explore this method.
+
+### Initializer Lists vs. Constructor Body Assignments
+
+When using a constructor body assignment, the compiler default initializes the variables, then reassigns the variable to the value you provide. On the other hand, using an initializer list will make it so that the variable will be initialized immediatly into the value you specify. This saves some steps which may be miniscule for smaller programs but for larger, more complex programs these extra steps can easily add up.
+
+More importantly, initializer lists are REQUIRED for base classes and reference members...
+```cpp
+class Example
+{
+    int& ref;
+
+    public:
+        Example(int& r) : ref(f) {}
+};
+```
+If your class contrains a reference member ("ref" in the above code), then there is no "default" initialization... you must create your own initialization. Trying to use a constructor body assignment will make the compiler look for a default initialization when there is nothing in the address for "ref"... its a case of putting the cart before the horse.
+
+```cpp
+class Animal {
+public:
+    Animal(std::string name) {
+        std::cout << "Animal: " << name << std::endl;
+    }
+};
+
+class Dog : public Animal 
+{
+    public:
+        Dog() : Animal("Dog") 
+        {
+            std::cout << "Dog created\n";
+        }
+};
+
+```
+Here is an example of an initializer list being used in a "base class" this dives into inheritance which we will not dive into just yet, but keep this in mind.
+
+Back to the PointClass.cpp code, after the constructor, We have our operator overloader. However, you may have noticed that the syntax here is a little different.
 
 ### "this"
 An important concept to introduce is the "this" operator. "this" is what is known as a "self-referential" operator, that is, when "this" is used, we are telling the compiler that we are refering to the object we are working with.
