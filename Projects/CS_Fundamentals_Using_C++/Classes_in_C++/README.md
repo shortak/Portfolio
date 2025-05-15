@@ -6,7 +6,7 @@ This directory will go over how classes work.
 # Classes
 Classes encapsulate data into three access specifications: "private", "public" and "protected". Each of these specifications offer a degree of control over what has access to the class's members.
 
-## Private
+## "private"
 The "private" specification is where you would store the member variables and functions that will only see use within this class (helper functions)
 
 In essense, anything in the private specicification will act as a black box where other classes will not be able to see any of the variables or functions. (similarly to the engine bay of a car, users will not have the ability to directly interface with the components in the engine bay).
@@ -25,7 +25,7 @@ class Point
 ```
 In the above code we define the Point type as one with a specific x and y variable. Because this is unique to the class and will not be changed by anything unless we specifically call a mutator function, we leave it in the private specification. 
 
-## Public
+## "public"
 
 The "public" specification, on the other hand, holds all of the information that is available to the user and other classes. This specification will hold things like your accessors and mutators (getters and setters), constructors and deconstructors, operator overloads and public methods (or member functions) that define what the object can do.
 
