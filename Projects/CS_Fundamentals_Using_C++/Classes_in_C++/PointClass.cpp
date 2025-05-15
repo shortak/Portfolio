@@ -1,24 +1,38 @@
 #include <iostream>
 
+using namespace std;
+
 class Point
 {
     public:
-        double getx() {return x;}
-        void setx(double v) {x = v;}
-    
+        // Accessors
+        double getx() const {return x;} 
+        double gety() const {return y;}
+
+        // Mutator
+        void setx(double v) {x = v;} 
+        void sety(double v) {y = v;}
+
+        // Constructor
+        Point(double a, double b) { x = a; y = b;};
+        Point() {x = y = 0;}
+
+        // Operator overload
+        Point operator+ ( const Point& otherPoint)
+        {
+            Point sum(x + otherPoint.getx(), y + otherPoint.gety());
+            return sum;
+        }
+
     private:
         double x, y;
 };
 
-Point operator+ (point& p1, point& p2)
-{
-    point sum = {p1.x + p2.x, p1.y + p2.y};
-    return sum;
-}
 
-ostream& operator << (ostream& out, const point& p)
+
+ostream& operator << (ostream& out, const Point& p)
 {
-    out << "(" << p.x << ", " << p.y << " )";
+    out << "(" << p.getx() << ", " << p.gety() << " )";
     return out;
 }
 
