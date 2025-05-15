@@ -188,6 +188,14 @@ Example(double a) {a = a;}
 
 Doesn't actually work.
 
+Using initializer lists, we can avoid this problem...
+
+```cpp
+Example(double a, double b):x(x), y(y){}
+```
+
+It is clear to the compiler that x(x) is read as member(arg).
+
 Back to the PointClass.cpp code, after the constructor, We have our operator overloader. However, you may have noticed that the syntax here is a little different.
 
 ### Operator Overloads in Classes
