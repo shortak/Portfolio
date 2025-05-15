@@ -111,7 +111,7 @@ class Dog : public Animal
 };
 
 ```
-Here is an example of an initializer list being used in a "base class" this dives into inheritance which we will not dive into just yet, but keep this in mind.
+Here is an example of an initializer list being used in a "base class" this involves inheritance which we will not dive into just yet, but keep this in mind.
 
 Additionally, if we want to exercise "const correctness" (which should be wherever we can), we might assign "const" to a private data member. In this case, we would also be required to use an initializer list.
 
