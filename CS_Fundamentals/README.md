@@ -11,5 +11,5 @@ The stack and heap are regions of static and dynamic memory, respecitvely, that 
 The stack is primarily used for function calls, local variables and flow control (return addresses, for example). 
 
 Additionally, some key characteristics of the stack include:
-- Fast (LIFO - Last in, First out)
+1. Fast (LIFO - Last in, First out)
     - 
