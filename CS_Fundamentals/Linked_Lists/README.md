@@ -43,4 +43,15 @@ Linked lists on the other hand allocate its elements to memory one by one. This 
 
 ### Insertion and Deletion
 
-Linked lists offer much faster insertion and deletion (O(1)) since that operation only involves one element. Arrays on the other hand need to shift all subsequent elements in order to perform the operation, the larger the array, the longer the operation takes (O[n])
+Linked lists offer much faster insertion and deletion (O(1)) since that operation only involves one element. Arrays on the other hand need to shift all subsequent elements accordingly in order to perform the operation, the larger the array, the longer the operation takes (O[n]).
+
+### Access
+
+Linked lists can only access its elements sequentially whereas arrays can access any element randomly. In other words, linked lists can only go to wherever the current node is connected and cannot jump to a node that isn't connected to the current one.
+
+```cpp
+current->next //Jump to next node
+current->prev //Jump to prev node
+```
+
+So, if you require quick access to non-sequential information, arrays are the way to go. 
