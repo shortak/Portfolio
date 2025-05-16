@@ -35,8 +35,9 @@ for (int i = 0; i < 100; i++)
 }
 ```
 Regardless of what "i" we are on, the compiler will still allocate the full size array to memory. This is fine if we know how big we want the array, but it becomes a problem if...
-a. The array is wayyyyyy too big
-b. The array changes size during runtime
+
+1. The array is wayyyyyy too big
+2. The array changes size during runtime
 
 Linked lists on the other hand allocate its elements to memory one by one. This may be slower, but it is much better for large or dynamic arrays. 
 
