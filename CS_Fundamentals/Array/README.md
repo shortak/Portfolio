@@ -174,7 +174,7 @@ For a defined vector...
 ```cpp
 using namespace std;
 
-vector<int> v
+vector<int> v;
 ```
 
 You can perform the following functions. Click on the function for an exmaple of how the function works.
@@ -251,5 +251,19 @@ vector<int> v = {1,2,3,4,5};
 v.erase(v.begin(), v.begin()+2);
 
 //Resulting vector: {4,5}
+```
+</details>
+
+<details>
+<summary>v.pop_back()</summary>
+
+```cpp
+using namespace std;
+
+vector<int> v = {1,2,3,4,5};
+
+v.pop_back();
+
+//Resulting vector: {1,2,3,4}
 ```
 </details>
