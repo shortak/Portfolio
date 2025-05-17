@@ -189,8 +189,67 @@ You can perform the following functions. Click on the function for an exmaple of
 # Example Code
 <details>
 <summary>v.insert(v.insert(*iterator*, *data*))</summary>
+
 ```cpp
 using namespace std;
 
+vector<int> v = {1,2,3,4,5};
+
+v.insert(v.begin()+2, 9);
+
+//Resulting vector: {1,2,9,3,4,5}
+```
+
+If you want to insert a range of elements?
+
+```cpp
+using namespace std;
+
+vector<int> v1 = {1,4,5};
+vector<int> v2 = {2,3};
+
+v1.insert(v1.begin()+1, v2.begin(), v2.end());
+
+//Resulting vector: {1,2,3,4,5}
+``` 
+</details>
+
+<details>
+<summary>v.push_back(*data*)</summary>
+
+```cpp
+using namespace std;
+
+vector<int> v = {1,2,3,4,5};
+
+v.push_back(6);
+
+//Resulting vector: {1,2,3,4,5,6}
+```
+</details>
+
+<details>
+<summary>v.erase(*iterator*)</summary>
+
+```cpp
+using namespace std;
+
+vector<int> v = {1,2,3,4,5};
+
+v.erase(v.begin()+1);
+
+//Resulting vector: {1,3,4,5}
+```
+
+If you want to delete a range of elements...
+
+```cpp
+using namespace std;
+
+vector<int> v = {1,2,3,4,5};
+
+v.erase(v.begin(), v.begin()+2);
+
+//Resulting vector: {4,5}
 ```
 </details>
