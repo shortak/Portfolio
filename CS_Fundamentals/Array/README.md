@@ -185,3 +185,12 @@ You can perform the following functions. Click on the function for an exmaple of
 |v.push_back(*data*)         |Insert data into the end of the vector                          |O(1)           |
 |v.erase(*iterator*)         |Delete data anywhere from the vector                            |O(n)           |
 |v.pop_back()                |Delete the last element from vector                             |O(1)           |
+
+# Example Code
+<details>
+<summary>v.insert(v.insert(*iterator*, *data*))</summary>
+```cpp
+using namespace std;
+
+```
+</details>
