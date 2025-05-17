@@ -55,3 +55,57 @@ current->prev //Jump to prev node
 ```
 
 So, if you require quick access to non-sequential information, arrays are the way to go. 
+
+# Types of Linked Lists
+
+Linked lists come in 4 types...
+1. Singly 
+2. Doubly
+3. Singly Circular
+4. Doubly Circular
+
+## Singly
+
+Singly linked lists consist of nodes connecting to other nodes in one direction like a one way street.
+
+```cpp
+// Define what a "node" is
+struct Node
+{
+    // Relevant data in the node
+    int data;
+
+    // Pointer to the net node
+    Node* next;
+
+    // Constructor to initialize node
+    Node(int data)
+    {
+        this->data = data;
+        this->next = &nextNode;
+    }
+};
+```
+NOTE: If this is the last node 
+
+## Doubly
+
+Doubly linked lists consist of nodes connecting to other nodes in both directions like a two way street.
+
+```cpp
+struct Node
+{
+    int data;
+
+    Node* prev;
+
+    Node* next;
+
+    Node(int data)
+    {
+        this->data = data;
+        this->next = &nextNode;
+        this->prev = &prevNode;
+    }
+}
+```

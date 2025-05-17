@@ -42,8 +42,9 @@ int main()
 {
     int size = 5;
 
-    // Allocate an array on the heap
+    // Allocate an array and variable on the heap
     int* arr = new int[size];
+    int* val = new int(10);
 
     // Fill the array
     for (int i = 0; i < size; ++i)
@@ -60,7 +61,13 @@ int main()
 
     // Free the heap memory
     delete[] arr;
+    delete val;
 }
 ```
 
 Proper memory allocation and deallocation is demonstrated in the above code.
+
+If the heap is not deallocated, the OS will automatically clear the heap when the program exits. For small, personal use, this is excusable. However, this is not okay if you are using a heap in a larger program that runs in the background.
+
+NOTE: the integer "val" doesn't do anything here other than show how you would handle allocation and deallocation of multiple variables. 
+
