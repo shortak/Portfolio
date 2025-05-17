@@ -57,3 +57,51 @@ This makes the following array...
 int grid[2][10] = {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
                    {10, 11, 12, 13, 14, 15, 16, 17, 18, 19},};
 ```
+
+Think of it as a grid on the xy-plane where i-index is the x-axis and the j-index is the y-axis.
+
+NOTE: You can initialize a multidimensional array the same way as a one dimensional array...
+
+```cpp
+int grid[2][5] = {/*any constant value*/};
+```
+
+For each nested "for" loop, a new dimension is added...
+
+```cpp
+// 1D, 2D, 3D and so on...
+int grid[10][10][10]...;
+
+for(int i = 0; i < 10; i++)
+{
+    for(int j = 0; j < 10; j++)
+    {
+        for(int k = 0; k < 10; k++)
+        {
+            ...
+        }
+    }
+}
+```
+
+NOTE: This code is not meant to compile, just to demonstrate how one might go about creating multidimensional array.
+
+Keep track of how big the array is. For example, making a 10 dimensional array where each cell is an int type variable (4 bytes) will allocate a huge amount of memory and processing power to parse the array. In this case, it may be benefically to turn to other data types and strategies.
+
+You can find the size of any array by using the "sizeof()" operator.
+
+```cpp
+int grid[2][10];
+
+for(int i = 0; i < 2; i++)
+{
+    for(int j = 0; j < 10; j++)
+    {
+        grid[i][j] = (i * 10) + j;
+    }
+}
+
+sizeof(grid);
+```
+
+In the above code, "sizeof(grid)" will show how much memory the grid array takes in bytes. In this case, it will output 80 (Total elements: 2 * 10 = 20, size of each element: 4 bytes).
