@@ -177,7 +177,7 @@ using namespace std;
 vector<int> v;
 ```
 
-You can perform the following functions. Check out the example code for [vectors](#vector_code) section to see how the functions works.
+You can perform the following functions. Check out the example code for [vectors](##vector_code) section to see how the functions works.
 
 |Function                                     |Description                                                     |Time Complexity|
 |---------------------------------------------|----------------------------------------------------------------|---------------|
