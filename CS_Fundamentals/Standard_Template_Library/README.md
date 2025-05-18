@@ -1,6 +1,6 @@
 # Overview
 
-After grasping the concepts of [arrays](../Array/) programmers can then move onto the wonderful world of the Standard Template Library (STL) containers. 
+After grasping the concepts of [arrays](Array/) programmers can then move onto the wonderful world of the Standard Template Library (STL) containers. 
 
 One observation that a beginner may have noticed is that as useful as arrays are, there must be more efficient ways to create complex datasets given the wide range of possible use-cases for arrays. 
 
