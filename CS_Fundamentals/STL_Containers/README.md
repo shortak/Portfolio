@@ -1,3 +1,3 @@
 # Overview
 
-After grasping the concepts of [arrays](../Arrays/)
+After grasping the concepts of [arrays](../Array/)
