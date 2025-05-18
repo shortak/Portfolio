@@ -179,12 +179,16 @@ vector<int> v;
 
 You can perform the following functions. Click on the function for an exmaple of how the function works.
 
-|Function                    |Description                                                     |Time Complexity|
-|----------------------------|----------------------------------------------------------------|---------------|
-|v.insert(*iterator*, *data*)|Insert data anywhere in the vector                              |O(n)           |
-|v.push_back(*data*)         |Insert data into the end of the vector                          |O(1)           |
-|v.erase(*iterator*)         |Delete data anywhere from the vector                            |O(n)           |
-|v.pop_back()                |Delete the last element from vector                             |O(1)           |
+|Function                                     |Description                                                     |Time Complexity|
+|---------------------------------------------|----------------------------------------------------------------|---------------|
+|v.insert(*iterator*, *data*) *               |Insert data anywhere in the vector                              |O(n)           |
+|v.push_back(*data*)                          |Insert data into the end of the vector                          |O(1)           |
+|v.erase(*iterator*) *                        |Delete data anywhere from the vector                            |O(n)           |
+|v.pop_back()                                 |Delete the last element from vector                             |O(1)           |
+|sort(*start iterator*, *end iterator*)       |Sort a vector in ascending order                                |O(n*log n)      |
+|stable_sort(*start iterator*, *end_iterator*)|Sort a vector in ascending order, but maintain order of equal elements|O(n*log^2 n)|
+
+* *This function can be used for a range of elements as well, view the example code for details.*
 
 # Example Code
 <details>
