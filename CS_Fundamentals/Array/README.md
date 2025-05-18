@@ -177,7 +177,7 @@ using namespace std;
 vector<int> v;
 ```
 
-You can perform the following functions. Check out the [example code](#example_code) section to see how the functions works.
+You can perform the following functions. Check out the example code for [vectors](#vector_code) section to see how the functions works.
 
 |Function                                     |Description                                                     |Time Complexity|
 |---------------------------------------------|----------------------------------------------------------------|---------------|
@@ -192,9 +192,10 @@ You can perform the following functions. Check out the [example code](#example_c
 
 * *This function can be used for a range of elements as well, view the example code for details.*
 
-# Example Code
+# Examples
+## Vector Code
 <details>
-<summary>v.insert(v.insert(*iterator*, *data*))</summary>
+<summary>v.insert()</summary>
 
 ```cpp
 using namespace std;
@@ -221,7 +222,7 @@ v1.insert(v1.begin()+1, v2.begin(), v2.end());
 </details>
 
 <details>
-<summary>v.push_back(*data*)</summary>
+<summary>v.push_back()</summary>
 
 ```cpp
 using namespace std;
@@ -235,7 +236,7 @@ v.push_back(6);
 </details>
 
 <details>
-<summary>v.erase(*iterator*)</summary>
+<summary>v.erase()</summary>
 
 ```cpp
 using namespace std;
@@ -271,5 +272,19 @@ vector<int> v = {1,2,3,4,5};
 v.pop_back();
 
 //Resulting vector: {1,2,3,4}
+```
+</details>
+
+<details>
+<summary>sort()</summary>
+
+```cpp
+using namespace std;
+
+vector<int> v = {1,3,2,5,4};
+
+sort(v.begin(), v.end());
+
+//Resulting vector: {1,2,3,4,5}
 ```
 </details>
