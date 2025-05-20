@@ -13,12 +13,14 @@ The stack is primarily used for function calls, local variables and flow control
 Some key characteristics of the stack include:
 
 1. Fast (LIFO - Last in, First out)
-    - The last piece of data you send to the stack is the first to leave
+    - The last piece of data you send to the stack is the first to leave (grows downwards)
 2. Automatic management
     - Memory si freed when the function exits
 3. Fixed size
     - Stack overflows can occur if the programs tries to access too much memory in the stack
 4. Temporary data storage
+
+This uses a portion of the RAM.
 
 ## The Heap
 
@@ -32,6 +34,8 @@ Some key characteristics include:
     - "new"/"delete" in C++ or "malloc"/"free" in C
 3. Very large memory
 4. Flexible size and lifetime
+
+Uses a different portion of the RAM.
 
 ```cpp
 #include <iostream>

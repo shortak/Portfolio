@@ -230,3 +230,158 @@ Point operator+ (const Point& p1, const Point& p2)
     return sum;
 }
 ```
+
+## Destructors
+
+If constructors are responsible for constructing the object, destructors are responsible for destroying them... but what exactly does that mean?
+
+Lets say we have a linked list, and calling the constructor allocates the list element to the heap...
+
+```cpp
+// Node class representing each element in the list
+class Node 
+{
+public:
+    int data;
+    Node* next;
+
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+// LinkedList class to manage the list
+class LinkedList 
+{
+private:
+    Node* head;
+
+public:
+    LinkedList() : head(nullptr) {}
+
+    // Insert a node at the end
+    void append(int value) 
+    {
+        Node* newNode = new Node(value);
+        if (!head) {
+            head = newNode;
+        } else {
+            Node* current = head;
+            while (current->next != nullptr) 
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+    }
+
+    // Print the entire list
+    void print() const 
+    {
+        Node* current = head;
+        while (current != nullptr) 
+        {
+            std::cout << current->data << " -> ";
+            current = current->next;
+        }
+        std::cout << "null\n";
+    }
+};
+
+int main() 
+{
+    LinkedList list;
+    list.append(10);
+    list.append(20);
+    list.append(30);
+
+    list.print();  // Output: 10 -> 20 -> 30 -> null
+
+    // Destructor automatically called at end of main()
+    return 0;
+}
+
+
+```
+
+We have a proper constructor made for the list, but what happens when we return out of main? 
+
+Well as we discussed, if no destructor is specficed, the OS will handle freeing up memory, however, it is best practice to specify our own destructor...
+
+```cpp
+#include <iostream>
+
+// Node class representing each element in the list
+class Node 
+{
+public:
+    int data;
+    Node* next;
+
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+// LinkedList class to manage the list
+class LinkedList 
+{
+private:
+    Node* head;
+
+public:
+    LinkedList() : head(nullptr) {}
+
+    // Insert a node at the end
+    void append(int value) 
+    {
+        Node* newNode = new Node(value);
+        if (!head) {head = newNode;} 
+        else
+        {
+            Node* current = head;
+            while (current->next != nullptr) 
+            {
+                current = current->next;
+            }
+            current->next = newNode;
+        }
+    }
+
+    // Print the entire list
+    void print() const 
+    {
+        Node* current = head;
+        while (current != nullptr) 
+        {
+            std::cout << current->data << " -> ";
+            current = current->next;
+        }
+        std::cout << "null\n";
+    }
+
+    // Destructor to free memory
+    ~LinkedList() 
+    {
+        Node* current = head;
+        while (current != nullptr) 
+        {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+        std::cout << "List memory cleaned up.\n";
+    }
+};
+
+int main() 
+{
+    LinkedList list;
+    list.append(10);
+    list.append(20);
+    list.append(30);
+
+    list.print();  // Output: 10 -> 20 -> 30 -> null
+
+    // Destructor automatically called at end of main()
+    return 0;
+}
+```
+
+Here, when we call the destructor, we start from the head of the list, then delete each element from the list.
