@@ -138,7 +138,11 @@ public:
 };
 ```
 
-The above code implements a cartesian product algorithm. Basically, we are asked to find all possible combinations of two vectors (remember that strings are vectors of charcters). The approach here is the find the word set associated with the digits entered by the user, then treat them as the vectors for which we need to find the combinations for. 
+The above code implements a cartesian product algorithm.
+
+![Cartesian Product](cartesian_product.png)
+
+ Basically, we are asked to find all possible combinations of two vectors (remember that strings are vectors of charcters). The approach here is the find the word set associated with the digits entered by the user, then treat them as the vectors for which we need to find the combinations for. 
 
 Lets check out a iteration-by-iteration analysis...
 
