@@ -122,3 +122,23 @@ When we use a pointer we are essentially "referencing" the address that holds th
 By using "*" on a pointer type variable, we now dereference that pointer, meaning we're talking about the data stored at that address.
 
 (We are basically pointing to an address here)
+
+# Double Pointers
+
+Double pointers are pointers that point to another pointer. 
+
+If a pointer holds the address of a variable, then a double pointer holds an address of a pointer.
+
+We can think of an analogy of this:
+
+ - Value: A house
+ - Pointer: A signpost telling you where the house is
+ - Double pointer: A map that shows you where the signpost is
+
+```cpp
+int value = 10;
+int* ptr = &value;        // ptr points to value
+int** dptr = &ptr;        // dptr points to ptr
+```
+
+You may have functions that need to alter a pointer (a common case in pointer arithmetic). For example, you may have a dynamic array of pointers... in that case, you would need a double pointer to point to that array.
