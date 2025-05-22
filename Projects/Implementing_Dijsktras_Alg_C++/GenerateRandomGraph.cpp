@@ -11,10 +11,22 @@ bool is_connected(bool* graph[], int size)
     int old_size = 0, c_size = 0;
     bool* close = new bool[size];
     bool* open = new bool[size];
-    for(int i = 0; i < size; ++i)
+    for(int i = 0; i < size; ++i) open[i] = close[i] = false;
+    open[0] = true;
+
+    while(c_size < size)
     {
-        open[i] = close[i] = false;
-        open[0] = true;
+        for(int i = 0; i < size; ++i)
+        {
+            old_size = c_size;
+            if(open[i] && !close[i]) // If we have a new open node to consider
+            {
+                close[i] = true; c_size++; // Put the node we are exploring into the closed set
+                for(int j = 0; j < size; ++j) open[j] |= graph[i][j]; // Put all connecting nodes in the open set
+                if (c_size == size) return true;
+                if(old_size == c_size) return false;
+            }
+        }
     }
 }
 
