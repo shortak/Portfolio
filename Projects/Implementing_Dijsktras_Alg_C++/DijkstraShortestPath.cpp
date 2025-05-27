@@ -190,12 +190,12 @@ int main()
 
     bool inputStatus;
 
-    unsigned int temp;
+    unsigned int userInput;
     do
     {
         inputStatus = true;
         cout << "Size of graph (please enter a positive integer greater than 1)?" << endl;
-        if(!(cin >> temp) || temp <= 1)
+        if(!(cin >> userInput) || userInput <= 1)
         {
             cout << "Invalid Input, please enter a positive integer greater than 1" << endl;
             cin.clear();
@@ -204,13 +204,13 @@ int main()
         }
     }while(!inputStatus);
 
-    const int size = temp;
+    const int size = userInput;
 
     do
     {
         inputStatus = true;
         cout << "Density of Graph? (1 to 100)" << endl;
-        if(!(cin >> temp) || temp <= 0 || temp >= 100)
+        if(!(cin >> userInput) || userInput <= 0 || userInput >= 100)
         {
             cout << "Invalid Input, please enter number between 0 and 100" << endl;
             cin.clear();
@@ -219,7 +219,7 @@ int main()
         }
     }while(!inputStatus);
 
-    const int density = temp;
+    const int density = userInput;
 
     do
     {
@@ -246,9 +246,9 @@ int main()
                     do
                     {
                         cout << "Export adjacency matrix? Yes(1) No(0)" << endl;
-                        cin >> temp;
-                        if(temp == 1) ExportGraph<double>(graph, size);
-                        else if(temp == 0) ;
+                        cin >> userInput;
+                        if(userInput == 1) ExportGraph<double>(graph, size);
+                        else if(userInput == 0) ;
                         else 
                         {   
                             cout << "Invalid Input" << endl;
@@ -259,8 +259,8 @@ int main()
                         do
                         {
                             cout << "Continue with shortest path calculation? Yes(1) No(0)" << endl;
-                            cin >> temp;
-                            if (temp == 1)
+                            cin >> userInput;
+                            if (userInput == 1)
                             {
                                 double* distances = new double[size];
                                 for(int i = 0; i < size; ++i)
@@ -272,13 +272,13 @@ int main()
                                 do
                                 {
                                     cout << "Export distances to all nodes? Yes(1) No(0)" << endl;
-                                    cin >> temp;
-                                    if(temp == 1) 
+                                    cin >> userInput;
+                                    if(userInput == 1) 
                                     {
                                         ExportDistances(distances, size);
                                         cout << "Exported to distances.csv!" << endl;
                                     }
-                                    else if(temp == 0){}
+                                    else if(userInput == 0){}
                                     else
                                     {
                                         cout << "Invalid Input" << endl;
@@ -289,7 +289,7 @@ int main()
 
                                 } while (!inputStatus);
                             }
-                            else if(temp == 0){}
+                            else if(userInput == 0){}
                             else
                             {
                                 cout << "Invalid Input" << endl;
@@ -331,9 +331,9 @@ int main()
                     do
                     {
                         cout << "Export adjacency matrix? Yes(1) No(0)" << endl;
-                        cin >> temp;
-                        if(temp == 1) ExportGraph<bool>(graph, size);
-                        else if(temp == 0){}
+                        cin >> userInput;
+                        if(userInput == 1) ExportGraph<bool>(graph, size);
+                        else if(userInput == 0){}
                         else 
                         {   
                             cout << "Invalid Input" << endl;
@@ -344,7 +344,7 @@ int main()
                         do
                         {
                             cout << "Continue with shortest path calculation? Yes(1) No(0)" << endl;
-                            if (temp == 1)
+                            if (userInput == 1)
                             {
                                 double* distances = new double[size];
                                 for(int i = 0; i < size; ++i)
@@ -356,13 +356,13 @@ int main()
                                 do
                                 {
                                     cout << "Export distances to all nodes? Yes(1) No(0)" << endl;
-                                    cin >> temp;
-                                    if(temp == 1) 
+                                    cin >> userInput;
+                                    if(userInput == 1) 
                                     {
                                         ExportDistances(distances, size);
                                         cout << "Exported to distances.csv!" << endl;
                                     }
-                                    else if(temp == 0){}
+                                    else if(userInput == 0){}
                                     else
                                     {
                                         cout << "Invalid Input" << endl;
@@ -373,7 +373,7 @@ int main()
 
                                 } while (!inputStatus);
                             }
-                            else if(temp == 0){}
+                            else if(userInput == 0){}
                             else
                             {
                                 cout << "Invalid Input" << endl;

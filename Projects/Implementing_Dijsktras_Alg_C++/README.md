@@ -214,3 +214,5 @@ This case is a disconnected graph. When the outer loop reaches a disconnected no
 
 # Implement Dijkstra's Algorithm
 
+Let's walk through how Dijkstra's Alg works on paper...
+
