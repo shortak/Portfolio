@@ -216,3 +216,8 @@ This case is a disconnected graph. When the outer loop reaches a disconnected no
 
 Let's walk through how Dijkstra's Alg works on paper...
 
+![DijExample](DijExample.jpg)
+
+In the above grpah, we have our distances to each node which alare shown in blue while the arrows in green show the direction we traverse in our algorithm. 
+
+We prioritize the shortest distance nodes or traversal so 

@@ -43,16 +43,16 @@ bool IsConnected(T** graph, int size)
     }
 }
 
-inline int FindMinPath(double* open, double* close, const int size)
+int FindMinPath(double* distance, bool* close, const int size)
 {
     double temp = __DBL_MAX__;
     int iterator = 0;
     int node;
     while (iterator != size)
     {
-        if (open[iterator] < temp && close[iterator] == 0 && open[iterator] != 0) 
+        if (distance[iterator] < temp && !close[iterator]) 
         {
-            temp = open[iterator];
+            temp = distance[iterator];
             node = iterator;
         }
         iterator++;
@@ -66,15 +66,15 @@ template<typename T>
 double Dijkstra(T** graph, const int size, int target)
 {
     double* distance = new double[size];
-    double* open = new double[size];
-    double* close = new double[size];
+    bool* open = new bool[size];
+    bool* close = new bool[size];
     for(int i = 0; i < size; ++i) 
     {
-        open[i] = close[i] = 0;
+        open[i] = close[i] = false;
         distance[i] = __DBL_MAX__;
     }
 
-    open[0] = 1; 
+    open[0] = true; 
     distance[0] = 0;
     bool pathFound= false;
     bool foundEarly = false;
@@ -86,30 +86,27 @@ double Dijkstra(T** graph, const int size, int target)
     int node = 0; //Source node
     while(!pathFound)
     {
-        if(open[node] > 0 && close[node] == 0)
+        
+        if(open[node] && !close[node])
         {   
-            close[node] = 1;
+            close[node] = true;
             for(int i = 0; i < size; ++i)
             {
-                if(graph[node][i] > 0 && close[i] == 0) 
+                if(graph[node][i] && !close[i]) 
                 {
-
-                    open[i] =  graph[node][i]; 
-                    if(i == target && !foundEarly)
+                    if(!open[i]) 
                     {
+                        open[i] = true;
                         distance[i] = distance[node] + graph[node][i];
-                        foundEarly = true;
                     }
+                    else if(distance[i] > distance[node] + graph[node][i]) distance[i] = distance[node] + graph[node][i];
                 }
             }   
-            int prevNode = node;
-                node = FindMinPath(open, close, size);  
-                
-                if(foundEarly && ( distance[prevNode] + graph[prevNode][node]) > distance[target]) return distance[target];
-                
-                distance[node] = distance[prevNode] + graph[prevNode][node];
 
-                if(distance[node] >= distance[target]) pathFound = true;
+            
+            int prevNode = node;
+            node = FindMinPath(distance, close, size);
+            if(distance[node] >= distance[target]) pathFound = true;
         }   
     }
     return distance[target];
@@ -266,6 +263,7 @@ int main()
                                 for(int i = 0; i < size; ++i)
                                 {
                                     distances[i] = Dijkstra<double>(graph, size, i);
+                                    cout << "Path to node " << i << " found..." << endl;
                                 }
                 
                                 cout << "Average shorest path: " << Average(distances, size) << endl;
