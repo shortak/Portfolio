@@ -77,7 +77,6 @@ double Dijkstra(T** graph, const int size, int target)
     open[0] = true; 
     distance[0] = 0;
     bool pathFound= false;
-    bool foundEarly = false;
     
     if(target == 0) return 0;
     int count=0;
