@@ -8,7 +8,7 @@
 
 using namespace std;
 
-template <typename T>
+template <typename T> //Allow the graph to be bool if user chooses to generate an unweighted graph
 class Graph
 {
 private:
@@ -19,7 +19,7 @@ private:
     bool isConnected = false;
     double* distances;
 
-    int FindMinPath(double* distance, bool* close, const int size)
+    int FindMinPath(double* distance, bool* close, const int size) //Finds the smallest path in the open set (queue) and returns the next node in the queue
     {
         double temp = __DBL_MAX__;
         int iterator = 0;
@@ -36,7 +36,7 @@ private:
         return node;
     }
 
-    inline double RandomDouble(double min, double max)
+    inline double RandomDouble(double min, double max) //Generate a random double number for edge placement
     {
         random_device rd;
         mt19937 gen(rd());
@@ -45,7 +45,7 @@ private:
         return dis(gen);
     }
     
-    inline double Average()
+    inline double Average() //Find the average of any set of values in an array (used for shortest path calculation)
     {
         double sum = 0;
         for(int i = 0; i < size; ++i){sum += distances[i];}
@@ -53,7 +53,7 @@ private:
         return sum/size;
     }
     
-    bool IsConnected()
+    bool IsConnected() //Checks for graph connectivity 
     {
         int old_size = 0, c_size = 0;
         bool* close = new bool[size];
@@ -61,14 +61,14 @@ private:
         for(int i = 0; i < size; ++i) open[i] = close[i] = false;
         open[0] = true;
 
-        while(c_size < size)
+        while(c_size < size) //Analyze graph until the closed set (dequeue) is as big as the size of the graph
         {
             for(int i = 0; i < size; ++i)
             {
                 old_size = c_size;
-                if(open[i] && !close[i]) // If we have a new open node to consider
+                if(open[i] && !close[i]) //If we have a new open node to consider
                 {
-                    close[i] = true; c_size++; // Put the node we are exploring into the closed set
+                    close[i] = true; c_size++; // Put the current node into the closed set (dequeue)
                     for(int j = 0; j < size; ++j) open[j] = open[j] || graph[i][j]; // Put all connecting nodes in the open set
                     if(c_size == size) 
                     {
@@ -77,7 +77,7 @@ private:
                         return true;
                     }
                 }
-                if(old_size == c_size)
+                if(old_size == c_size) //If we cannot add any more nodes to the closed set and closed set does not contain all nodes
                 {
                     delete[] open;
                     delete[] close;
@@ -89,9 +89,9 @@ private:
     }
 
 public:
-    Graph(const int size, const int density) : size(size), density(density)
+    Graph(const int size, const int density) : size(size), density(density) //Initializer list constructor for a graph
     {
-        while(!isConnected)
+        while(!isConnected) //Repeat graph creation until the generated graph is connected
         {
             attempts++;
             graph = new T* [size];
@@ -99,14 +99,14 @@ public:
             for(int i = 0; i < size; ++i) graph[i] = new T[size];
             for(int i = 0; i < size; ++i)
             {
-                for(int j = 0; j < size; ++j)
+                for(int j = 0; j < size; ++j) //Randomly place edges based on density
                 {
                     if(i == j)graph[i][j] = false;
                     else graph[i][j] = graph[j][i] = RandomDouble(1.0, 10.0) * static_cast<double>((rand() % 100) < density);
                 }
             }
             isConnected = IsConnected();
-            if(!isConnected)
+            if(!isConnected) //Deconstruct to prepare for the next generation
             {
                 for(int i = 0; i < size; ++i) delete[] graph[i];
                 delete[] graph;
@@ -120,7 +120,41 @@ public:
     int GetCxnStatus(){return isConnected;}
     int GetDensity(){return density;}
 
-    double Dijkstras(const int target)
+    T Edge(int x, int y) //If there is an edge, return the edge b/n x and y
+    {
+        if(graph[x][y]) return graph[x][y];
+        else 
+        {
+            cout << "No edge between nodes " << x << " and " << y << endl;
+            return graph[x][y];
+        }
+    }
+
+    bool Adjacent(int x, int y) //Check if there exists an edge b/n x and y
+    {
+        if(graph[x][y]) return true;
+        else return false;
+    }
+
+    void Neighbors(int x) //Find all nodes connected to x
+    {
+        cout << "Listing all nodes connected to " << x << "..." << endl;
+        for(int i = 0; i < size; ++i)
+        {
+            if(graph[x][i]) cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    void Add(int x, int y){graph[x][y] = graph[y][x] = 1;} //Add an edge between x and y
+    
+    void AddWeight(int x, int y, double weight){graph[x][y] = graph[y][x] = weight;} //Place a weighted edge between x and y
+
+    void Delete(int x, int y){graph[x][y] = graph[y][x] = 0;} //Delete edge
+    
+    void SetEdgeValue(int x, int y, T value){graph[x][y] = graph[x][y] = value;} //Set an edge between x and y
+
+    double Dijkstras(const int target) //Use Dijkstra's shortest path alg to find the shortest path from node 0 to target node
     {
         double* distance = new double[size];
         bool* open = new bool[size];
@@ -165,7 +199,7 @@ public:
         return distance[target];
     }
 
-    double AvgShortestPath()
+    double AvgShortestPath() //Iterate through each node to find the shortest path to that node, then average it out
     {
         for(int i = 0; i < size; ++i)
         {
@@ -174,7 +208,7 @@ public:
         return Average();
     }
 
-    void ExportGraph()
+    void ExportGraph() //Export graph to csv
     {
         ofstream file("graph.csv");
         if (file.is_open())
@@ -194,7 +228,7 @@ public:
         cout << "Graph written to graph.csv!" << endl;
     }
 
-    void ExportDistances()
+    void ExportDistances() //Export shortest distance to all nodes to csv
     {
         ofstream file("distances.csv");
         if (file.is_open())
@@ -207,14 +241,15 @@ public:
         }
     }
 
-    ~Graph()
+    ~Graph() //Destroy object
     {
         for(int i = 0; i < size; ++i) delete[] graph[i];
         delete[] graph;
     }
 };
 
-bool GetYesNo(const string& prompt)
+
+bool GetYesNo(const string& prompt) //Ask user for a yes or no input
 {
     bool input;
     while(true)
@@ -234,7 +269,7 @@ bool GetYesNo(const string& prompt)
     }
 }
 
-int GetBoundedInt(const string& prompt, int min, int max)
+int GetBoundedInt(const string& prompt, int min, int max) //Ask user for an integer between two integers
 {
     int input;
     while(true)
