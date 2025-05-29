@@ -218,6 +218,66 @@ Let's walk through how Dijkstra's Alg works on paper...
 
 ![DijExample](DijExample.jpg)
 
-In the above grpah, we have our distances to each node which alare shown in blue while the arrows in green show the direction we traverse in our algorithm. 
+In the above grpah, we have our distances to each node which are shown in blue while the arrows in green show the direction we traverse in our algorithm. 
 
-We prioritize the shortest distance nodes or traversal so 
+We prioritize the shortest distance nodes for traversal. First, we place the nodes connected to the starting node in the open set while keeping track of the distances associated with each node in the distance array. We then find the shortest distance and travel to that node.
+
+After traveling to that node, we move our current node into the closed set to ensure we don't travel back to this node in the future (with the way this alg works, we guarantee that the next node we travel to is the shortest path to that node). We then repeat the process for future loops. 
+
+NOTE: When we update the distances in the distance array, we consider the distance from the starting node to the node we are looking at, NOT the distance from the current node to the node we are looking at. 
+
+Lets take a look at how we do this in code...
+
+NOTE: The whole code is located in [DijkstraShortestPath.cpp](DijkstraShortestPath.cpp)
+
+```cpp
+template<typename T>
+double Dijkstra(T** graph, const int size, int target)
+{
+    double* distance = new double[size];
+    bool* open = new bool[size];
+    bool* close = new bool[size];
+    for(int i = 0; i < size; ++i) 
+    {
+        open[i] = close[i] = false;
+        distance[i] = __DBL_MAX__;
+    }
+
+    open[0] = true; 
+    distance[0] = 0;
+    bool pathFound= false;
+    
+    if(target == 0) return 0;
+    int count=0;
+    int loopcount = 0;
+
+    int node = 0; //Source node
+    while(!pathFound)
+    {
+        
+        if(open[node] && !close[node])
+        {   
+            close[node] = true;
+            for(int i = 0; i < size; ++i)
+            {
+                if(graph[node][i] && !close[i]) 
+                {
+                    if(!open[i]) 
+                    {
+                        open[i] = true;
+                        distance[i] = distance[node] + graph[node][i];
+                    }
+                    else if(distance[i] > distance[node] + graph[node][i]) distance[i] = distance[node] + graph[node][i];
+                }
+            }   
+
+            
+            int prevNode = node;
+            node = FindMinPath(distance, close, size);
+            if(distance[node] >= distance[target]) pathFound = true;
+        }   
+    }
+    return distance[target];
+}
+
+```
