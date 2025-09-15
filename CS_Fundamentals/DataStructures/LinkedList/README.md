@@ -41,7 +41,7 @@ Moving forward, lets clarify some of the terminology used...
 
 ## Traversal
 
-![Traversal Illustration](Traverse.jpg "Traversal Illustration")
+![Traversal Illustration](figrues/Traverse.jpg "Traversal Illustration")
 
 Almost all algorithms will use traversal in their implementation. We initialize a pointer type variable for our node object to the head of the list, then increment the pointer by accessing the object's "next" pointer via some sort of loop.
 
@@ -51,7 +51,7 @@ If you know the data in the node you are looking for (e.g. need to access a node
 
 ## Access before and after a given index
 
-![Access Illustration](Accessidx.jpg "Access Illustration")
+![Access Illustration](figures/Accessidx.jpg "Access Illustration")
 
 Sometimes you may not know the specific data you are trying to access... in such cases, you may use a provided index (often passed in as a method parameter). It is important to note that given the nature of traversal a given index does not necessarily fall on the node which is why we need algorithms for accessing befoer and after a given index
 
@@ -61,7 +61,7 @@ IMPORTANT: if we are using a singly linked list, to keep track of the previous n
 
 ## Insert node
 
-![Insert Illustration](Insert.jpg "Insert Illustration")
+![Insert Illustration](figures/Insert.jpg "Insert Illustration")
 
 This is a very common algorithm, you will see these in any kind of swap, merge or any pointer manipulation related algorithm. 
 
@@ -77,7 +77,7 @@ NOTE: Linking a downstram node or storing it's pointer into another variable is 
 
 ## Delete node
 
-![Delete Illustration](Delete.jpg "Delete Illustration")
+![Delete Illustration](figures/Delete.jpg "Delete Illustration")
 
 Deleting a node involves keeping track of 3 nodes, the current node that you're using to traverse, the next and previous nodes. 
 
@@ -89,7 +89,7 @@ Deleting a node involves keeping track of 3 nodes, the current node that you're 
 
 ## Swap node
 
-![Swap Illustration](Swap.jpg "Swap Illustration")
+![Swap Illustration](figures/Swap.jpg "Swap Illustration")
 
 The swap algorithm is a little more involved...
 
