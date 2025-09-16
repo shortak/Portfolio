@@ -40,24 +40,30 @@ We will leave it here for now. We will expand on the recursive logic in the exam
 To summarize...
 
 Recursion:
+
 Pros:
+
     - Cleaner, simpler code. Recuring maps naturally to the structure of trees.
     - Easier to read and maintain.
     - Less boilerplate. No need to manage your own stack explicitly.
 
 Cons: 
+
     - Risk of stack overflow. Each call adds a new frame to the call stack. For deep or unoptimized trees, you may exceed system recursion limits.
     - Hidden overhead. Each funciton call involves overhead (pushing/popping stack frames)
     - Less control. Harder to manage things like iterative early exits, or complex state across calls.
 
 Iteration:
+
 Pros:
+
     - No recursion depth limit. Explicit stacks or queues avoid a potential stack overflow
     - More control. You get to decide how to manage traversal.
     - More memory-efficient. No recursive call overhead.
     - Performance edge in languages where recursion is not optimized.
 
 Cons:
+
     - More verbose code. More logic and you need to manage your own stack or queue.
     - Harder to read and understand.
     - More places to make mistakes. More complex = a nesting place for bugs.
